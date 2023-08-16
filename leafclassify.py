@@ -62,7 +62,7 @@ def main():
                 predictions = predict(image)
 
                 time.sleep(1)
-                st.success('Results')
+                st.success('Detect')
                 st.write(predictions)
 
 
@@ -133,7 +133,7 @@ def predict(image):
     high=np.argmax(probabilities)
     result_1=label_new[high]
     confidence=100 * np.max(probabilities)
-    result="Category:"+ "  "+str(result_1) +"     "+ "\n Confidence: "+ " "+ str(confidence)+ "%"
+    result="Category:"+ "  "+str(result_1) +"     "+ "\nConfidence: "+ " "+ str(confidence)+ "%"
 
 
     return result
