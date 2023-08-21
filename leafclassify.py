@@ -16,7 +16,7 @@ import base64
 
 # fig = plt.figure()
 st.title(':white[AI4AFS-UENR]')
-st.header(':white[cassava Disease/Pest Detection App]')
+st.header(':white[Cashew Disease/Pest Detection App]')
 
 #st.markdown("Prediction Platform")
 def set_background(main_bg):  # local image
