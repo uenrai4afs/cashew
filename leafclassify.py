@@ -8,21 +8,15 @@ from tensorflow import keras
 from keras.models import *
 from keras import preprocessing
 import time
-
+import base64
 ## this is part of web app
 
 ## ----------------------------------------------- x -----------------------------------------x-------------------------x------------------##
 
 
 # fig = plt.figure()
-import base64
-
-
-
-#st.markdown(page_bg_img, unsafe_allow_html=True)
-
 st.title(':white[AI4AFS-UENR]')
-st.header(':white[Cashew Disease/Pest Detection App]')
+st.header(':white[cassava Disease/Pest Detection App]')
 
 #st.markdown("Prediction Platform")
 def set_background(main_bg):  # local image
@@ -42,8 +36,6 @@ def set_background(main_bg):  # local image
 
 
 set_background('cashew.png')
-
-
 def main():
     file_uploaded = st.file_uploader("Choose File", type=["png", "jpg", "jpeg"])
     
@@ -62,7 +54,7 @@ def main():
                 predictions = predict(image)
 
                 time.sleep(1)
-                st.success('Detect')
+                st.success('Results')
                 st.write(predictions)
 
 
@@ -131,8 +123,7 @@ def predict(image):
     high=np.argmax(probabilities)
     result_1=label_new[high]
     confidence=100 * np.max(probabilities)
-    result="Category:"+ "  "+str(result_1) +"     "+ "\nConfidence: "+ " "+ str(confidence)+ "%"
-
+    result="Category:"+ "  "+str(result_1) +"     "+ "\n Confidence: "+ " "+ str(confidence)+ "%"
 
     return result
 
