@@ -9,6 +9,8 @@ from keras.models import *
 from keras import preprocessing
 import time
 import base64
+#added by patrick
+from cv2 import *
 ## this is part of web app
 
 ## ----------------------------------------------- x -----------------------------------------x-------------------------x------------------##
@@ -37,12 +39,14 @@ def set_background(main_bg):  # local image
 
 set_background('cashew.png')
 def main():
+    ##====Juat upload image from gallery========
     file_uploaded = st.file_uploader("Choose File", type=["png", "jpg", "jpeg"])
     
     if file_uploaded is not None:
         image = Image.open(file_uploaded)
         st.image(image, caption='Uploaded Image', use_column_width=False)
     class_btn = st.button("Detect")
+    camera_btn = st.button("Camera")
     if class_btn:
         if file_uploaded is None:
             st.write("Invalid command, please upload an image")
@@ -56,35 +60,46 @@ def main():
                 time.sleep(1)
                 st.success('Results')
                 st.write(predictions)
+        if camera_btn:
+            def webcam()
+                    
+    #====Added by Patrick for Camera=============
+    
+    
+    
 
 
-## This code is for saved model in format as H5 file
-
-
-# def predict(image):
-#     classifier_model = "HD_Model.h5"
-
-#     model = load_model(classifier_model)
-
-#     test_image = image.resize((200,200))
-#     test_image = preprocessing.image.img_to_array(test_image)
-#     test_image = test_image / 255.0
-#     test_image = np.expand_dims(test_image, axis=0)
-#     class_names = {0 : 'healthy', 1 :'diseased'}
-
-#     predictions = model.predict(test_image)
-#     scores = tf.nn.softmax(predictions[0])
-#     scores = scores.numpy()
-
-
-#     result = f"{class_names[np.argmax(scores)]} with a { (100 * np.max(scores)).round(2) } % confidence."
-#     return result
-
-
+    
 ## -----------------------------------------------------x---------------------------------------x--------------------------------------------##
+def webcam():
+    # program to capture single image from webcam in python 
+    # importing OpenCV library 
+    #from cv2 import *
+    cam_port = 0
+    cam = VideoCapture(cam_port) 
+    result, image = cam.read() 
+    # If image will detected without any error, 
+    # show result 
+    if result: 
 
+	    # showing result, it take frame name and image 
+	    # output 
+	    imshow("GeeksForGeeks", image) 
 
-## this code for format tflite file
+	    # saving image in local storage 
+	    imwrite("GeeksForGeeks.png", image) 
+
+	    # If keyboard interrupt occurs, destroy image 
+	    # window 
+	    waitKey(0) 
+	    destroyWindow("GeeksForGeeks") 
+
+    # If captured image is corrupted, moving to else part 
+    else: 
+	    print("No image detected. Please! try again") 
+#=======================Above by patrick==================================================
+
+## ============this code for format tflite file=========================
 def predict(image):
     #model = "leaves_model.tflite"
     model="cashew.tflite"
