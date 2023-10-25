@@ -76,7 +76,7 @@ def webcam():
     # importing OpenCV library 
     #from cv2 import *
     cam_port = 0
-    cam = VideoCapture(cam_port) 
+    cam = cv2.VideoCapture(cam_port) 
     result, image = cam.read() 
     # If image will detected without any error, 
     # show result 
