@@ -10,7 +10,7 @@ from keras import preprocessing
 import time
 import base64
 #added by patrick
-#from cv2 import *
+from cv2 import *
 ## this is part of web app
 
 ## ----------------------------------------------- x -----------------------------------------x-------------------------x------------------##
