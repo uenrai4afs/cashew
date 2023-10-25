@@ -61,7 +61,7 @@ def main():
                 st.success('Results')
                 st.write(predictions)
         if camera_btn:
-            def webcam()
+            webcam()
                     
     #====Added by Patrick for Camera=============
     
