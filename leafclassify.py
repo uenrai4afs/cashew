@@ -45,7 +45,7 @@ def main():
         image = Image.open(file_uploaded)
         st.image(image, caption='Uploaded Image', use_column_width=False)
     class_btn = st.button("Detect")
-    camera_btn = st.button("Camera")
+    #camera_btn = st.button("Camera")
     if class_btn:
         if file_uploaded is None:
             st.write("Invalid command, please upload an image")
