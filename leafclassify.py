@@ -17,8 +17,7 @@ from cv2 import *
 
 
 # fig = plt.figure()
-st.title(':white[AI4AFS-UENR]')
-st.header(':white[Cashew Disease/Pest Detection App]')
+st.markdown("<h1 style='color: black;'>Cashew Disease/Pest Detection App</h1>", unsafe_allow_html=True)
 
 #st.markdown("Prediction Platform")
 def set_background(main_bg):  # local image
@@ -59,7 +58,8 @@ def main():
 
                 time.sleep(1)
                 st.success('Results')
-                st.write(predictions)
+                #st.write(predictions)
+	    	st.markdown(predictions, unsafe_allow_html=True)
         if camera_btn:
             webcam()
                     
@@ -138,7 +138,13 @@ def predict(image):
     high=np.argmax(probabilities)
     result_1=label_new[high]
     confidence=100 * np.max(probabilities)
-    result="Category:"+ "  "+str(result_1) +"     "+ "\n Confidence: "+ " "+ str(confidence)+ "%"
+    #result="Category:"+ "  "+str(result_1) +"     "+ "\n Confidence: "+ " "+ str(confidence)+ "%"    
+    result = f"""
+    <span style='color: black;'>
+        Category: <strong>{result_1}</strong><br>
+        Confidence: <strong>{confidence:.2f}%</strong>
+    </span>
+    """
 
     return result
 
