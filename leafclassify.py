@@ -58,8 +58,8 @@ def main():
 
                 time.sleep(1)
                 st.success('Results')
-                #st.write(predictions)
-	    	st.markdown(predictions, unsafe_allow_html=True)
+                st.markdown(predictions, unsafe_allow_html=True)
+
         if camera_btn:
             webcam()
                     
